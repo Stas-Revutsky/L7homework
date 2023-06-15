@@ -6,7 +6,7 @@ namespace L7homework
     {
         static void Main()
         {
-            Dictionary<string, string> PhoneBook = new();
+            Dictionary<string, string> phoneBook = new();
             using (StreamReader sr = new("../../.././Phones/Phones.TXT", System.Text.Encoding.Default)) 
             {
                 string? phoneNumber;
@@ -18,22 +18,22 @@ namespace L7homework
                     do
                     {
                         name = Console.ReadLine();
-                    }while (name == null || PhoneBook.ContainsKey(name));
+                    }while (name == null || phoneBook.ContainsKey(name));
 
-                    PhoneBook.Add(name, phoneNumber);
+                    phoneBook.Add(name, phoneNumber);
                     using StreamWriter sw = new("../../.././Phones/New.TXT", true, System.Text.Encoding.Default);
                     sw.WriteLine("+3" + phoneNumber);
                 }
             }
-            Console.WriteLine("Whose nummber do you want to find?");
+            Console.WriteLine("Whose number do you want to find?");
             string? nameToFind;
             do
             {
                 nameToFind = Console.ReadLine();
             }while (nameToFind == null);
-            if (PhoneBook.ContainsKey(nameToFind))
+            if (phoneBook.ContainsKey(nameToFind))
             {
-                Console.WriteLine($"{PhoneBook[nameToFind]}");
+                Console.WriteLine($"{phoneBook[nameToFind]}");
             }
             else { Console.WriteLine($"Seems like there isn't anyone named {nameToFind} in phonebook"); }
 
